@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<p>
+    Темы:
+</p>
+<ul>
+    {% for topic in topics %}
+    <li>
+        <a href="{% url 'note_app:topic' topic.id %}">
+            {{topic}}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'note_app:new_topic' %}">Добавить новую тему</a>
+{% endblock content %}

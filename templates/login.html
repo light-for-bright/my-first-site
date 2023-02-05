@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+{% if form.errors %}
+<p>Логин или пароль неверны. Пожалуйста, попробуйте снова.</p>
+{% endif %}
+<form action="{% url 'users:login' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button name="submit">Войти</button>
+    <input type="hidden" name="next" value="{% url 'note_app:index' %}" />
+</form>
+{% endblock content %}

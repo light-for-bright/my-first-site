@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<p>Добавить новую тему:</p>
+<form action="{% url 'note_app:new_topic' %}" method="post">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button name='submit'>Добавить тему</button>
+</form>
+{% endblock content %}

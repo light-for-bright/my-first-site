@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<p><a href="{% url 'note_app:topic' topic.id %}">{{ topic }}</a></p>
+<p>Редактирование записи:</p>
+<form action="{% url 'note_app:edit_entry' entry.id %}" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button name="submit">Сохранить изменения</button>
+</form>
+{% endblock content %}

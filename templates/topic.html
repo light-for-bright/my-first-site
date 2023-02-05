@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<p>
+    Тема: {{topic}}
+</p>
+<p>
+    Записи по теме:
+</p>
+<p>
+    <a href="{% url 'note_app:new_entry' topic.id %}">Добавить</a>
+</p>
+<uL>
+    {% for entry in entries %}
+    <li>
+        <p>{{entry.date_added|date:'M d, Y H:i' }}</p>
+        <p>{{entry.text|linebreaks}}</p>
+        <p>
+            <a href="{% url 'note_app:edit_entry' entry.id %}">Редактировать запись</a>
+        </p>
+    </li>
+    {%empty%}
+    <p>Записи по данной теме еще не созданы</p>
+    {% endfor %}
+</uL>
+{% endblock content %}
