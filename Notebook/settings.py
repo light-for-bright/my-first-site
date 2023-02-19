@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'note_app',
     'users',
     # Сторонние приложения
-    'bootstrap3'
+    #'bootstrap3'
 ]
 
 MIDDLEWARE = [
